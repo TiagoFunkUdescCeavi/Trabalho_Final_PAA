@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "escalonador_tarefas_publico.h": "c"
+        "escalonador_tarefas_publico.h": "c",
+        "cmath": "c",
+        "cstdarg": "c",
+        "cstdint": "c",
+        "cstdio": "c",
+        "cstdlib": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "*.tcc": "c",
+        "typeinfo": "c"
     }
 }

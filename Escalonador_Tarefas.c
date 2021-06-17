@@ -3,28 +3,28 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-void print_atividade( A a ){
+void print_atividade( Atividade a ){
     printf( "Id: %d, Inicio: %d, Termino: %d\n", a->id, a->inicio, a->termino );
 }
 
-A criar_atividade( int id, int inicio, int termino ){
-    A a = (A) malloc( sizeof( A ) );
+Atividade criar_atividade( int id, int inicio, int termino ){
+    Atividade a = (Atividade) malloc( sizeof( Atividade ) );
     a->id = id;
     a->inicio = inicio;
     a->termino = termino;
     return a;
 }
 
-Solucao resolver( A* atividades, int tamanho ){
+Solucao resolver( Atividade* atividades, int tamanho ){
     Solucao s;
     s.tamanho = 0;
 
     if( tamanho < 0 || atividades == NULL ) return s;
     
     ordenar( atividades, tamanho );
-    s.atividades = (A*) malloc( sizeof( A ) * tamanho );
+    s.atividades = (Atividade*) malloc( sizeof( Atividade ) * tamanho );
 
-    A atual = atividades[ 0 ];
+    Atividade atual = atividades[ 0 ];
     s.atividades[ 0 ] = atual;
     s.tamanho++;
     for (int i = 1; i < tamanho; i++){
@@ -37,16 +37,16 @@ Solucao resolver( A* atividades, int tamanho ){
     return s;
 }
 
-void ordenar( A * atividades, int tamanho ){
+void ordenar( Atividade * atividades, int tamanho ){
     merge_sort( atividades, 0, tamanho-1 );
 }
 
-void merge( A * v, int l, int m, int r ){
+void merge( Atividade * v, int l, int m, int r ){
     int i, j, k;
     int n1 = m - l + 1;
     int n2 = r - m;
-    A vl[ n1 ];
-    A vr[ n2 ];
+    Atividade vl[ n1 ];
+    Atividade vr[ n2 ];
 
     for( i = 0; i < n1; i++ ){
         vl[ i ] = v[ l+i ];
@@ -82,7 +82,7 @@ void merge( A * v, int l, int m, int r ){
     }
 }
 
-void merge_sort( A * v, int i, int f ){
+void merge_sort( Atividade * v, int i, int f ){
     if( i < f ){
         int m = i+(f-i)/2;
         merge_sort( v, i, m );
