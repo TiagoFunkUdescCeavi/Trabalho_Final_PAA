@@ -30,17 +30,17 @@
 __Resultado Esperado__
 - ![](https://i.imgur.com/49EbX1S.png)
 
-- Deve gerar o arquivo executável `main`
+- Deve gerar o arquivo executável `TRABALHO_FINAL_PAA`
 
 ### Como Executar
 - Após realizar o build do executável com `make`
 - Rode o arquivo com a seguinte linha de comando
 ```shell
-./main
+./TRABALHO_FINAL_PAA
 ```
 
 > Para limpar, realizar o build e executar o main use `make run`
 
 ### Como Limpar
-- Limpa todos os `.out` e o `main`
+- Limpa todos os `.out` e o `TRABALHO_FINAL_PAA`
 - Execute o comando `make clean`
