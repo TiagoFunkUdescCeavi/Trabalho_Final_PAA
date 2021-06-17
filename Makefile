@@ -9,7 +9,7 @@ C_SOURCE=$(wildcard *.c)
 H_SOURCE=$(wildcard *.h)
 
 # É copiado todos os nomes da variável C_SOURCE para OBJ,
-# mas com a substituição da extensão .cpp para .o. 
+# mas com a substituição da extensão .cpp para .o.
 # Fazemos isso pois inicialmente os arquivos-objeto não existem,
 # então a função wildcard seria ineficiente nesse caso.
 OBJ=$(C_SOURCE:.c=.o)
@@ -27,10 +27,10 @@ $(PROJ_NAME): $(OBJ)
 #	@ echo "H $(H_SOURCE)"
 #	@ echo "OBJ $(OBJ)"
 	$(CC) -o $@ $^
-	
+
 # o simbolo '%' pega o nome do arquivo
 # $@ pega o nome o target
-# $< pega o nome do pré-requisito 
+# $< pega o nome do pré-requisito
 %.o: %.c %.h
 	$(CC) -o $@ $< $(CC_FLAGS)
 
@@ -40,3 +40,6 @@ main.o: main.c $(H_SOURCE)
 
 clean:
 	rm -rf *.o $(PROJ_NAME) *~
+
+run: clean main.o
+	./$PROJ_NAME
