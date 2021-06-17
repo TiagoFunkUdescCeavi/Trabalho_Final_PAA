@@ -43,3 +43,6 @@ clean:
 
 run: clean main.o
 	./$PROJ_NAME
+
+script.sh:
+	bash ./script/generate_csv.sh
