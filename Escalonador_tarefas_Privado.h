@@ -3,11 +3,13 @@
 
 #include "Escalonador_Tarefas_Publico.h"
 
-typedef struct Atividade{
+struct Atividade{
     int id;
     int inicio;
     int termino;
-} Atividade;
+};
+
+void ordenar( A * atividades, int tamanho );
 
 void merge( A * v, int l, int m, int r );
 void merge_sort( A * v, int i, int f );

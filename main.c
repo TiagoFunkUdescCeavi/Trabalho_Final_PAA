@@ -21,20 +21,10 @@ int main( int argc, char ** argv ){
     ativs[ 9 ] = criar_atividade( 10, 2, 13 );
     ativs[ 10 ] = criar_atividade( 11, 3, 8 );
 
-    ordenar( ativs, SIZE );
+    Solucao s = resolver( ativs, SIZE );
 
-    for (int i = 0; i < SIZE; i++){
-        print_atividade( ativs[ i ] );
-    }
-
-    printf(">>>>>>>>>>>>>>>\n");
-    A atual = ativs[ 0 ];
-    print_atividade( atual );
-    for (int i = 0; i < SIZE; i++){
-        if( ativs[ i ]->inicio >= atual->termino ){
-            print_atividade( ativs[ i ] );
-            atual = ativs[ i ];
-        }
+    for( int i = 0; i < s.tamanho; i++ ){
+        print_atividade( s.atividades[ i ] );
     }
     
     return 0;
