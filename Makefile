@@ -15,7 +15,7 @@ H_SOURCE=$(wildcard *.h)
 OBJ=$(C_SOURCE:.c=.o)
 
 # Compiler
-CC=g++
+CC=gcc
 
 # Flags for compiler
 CC_FLAGS=-c -W -Wall
