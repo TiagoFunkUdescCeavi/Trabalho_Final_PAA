@@ -76,6 +76,10 @@ int resolver(pAuditorio pAuditorio) {
 }
 
 int destruir_auditorio(pAuditorio pAuditorio) {
+  if (pAuditorio == NULL) {
+    return TRUE;
+  }
+
   free(pAuditorio->atividades);
   free(pAuditorio);
   return TRUE;
