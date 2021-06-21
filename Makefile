@@ -41,8 +41,9 @@ main.o: main.c $(H_SOURCE)
 clean:
 	rm -rf *.o $(PROJ_NAME) *~
 
-run: clean main.o
-	./$PROJ_NAME
+run: clean
+	make
+	./$(PROJ_NAME)
 
 script.sh:
 	bash ./script/generate_csv.sh

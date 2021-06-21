@@ -1,32 +1,30 @@
-#include "stdlib.h"
 #include "stdio.h"
+#include "stdlib.h"
 
-#define SIZE 11
+#define SIZE 12
 
 #include "Escalonador_Tarefas_Publico.h"
 
+int main() {
+  pAuditorio pAuditorio = criar_auditorio(SIZE);
+  upsert_atividade(pAuditorio, 0, 2, 8);
+  upsert_atividade(pAuditorio, 1, 1, 5);
+  upsert_atividade(pAuditorio, 2, 8, 11);
+  upsert_atividade(pAuditorio, 3, 5, 7);
+  upsert_atividade(pAuditorio, 4, 1, 4);
+  upsert_atividade(pAuditorio, 5, 6, 10);
+  upsert_atividade(pAuditorio, 6, 12, 14);
+  upsert_atividade(pAuditorio, 7, 0, 6);
+  upsert_atividade(pAuditorio, 8, 8, 12);
+  upsert_atividade(pAuditorio, 9, 5, 9);
+  upsert_atividade(pAuditorio, 10, 2, 13);
+  upsert_atividade(pAuditorio, 11, 3, 8);
 
-int main( int argc, char ** argv ){
+  print_auditorio(pAuditorio);
+  resolver(pAuditorio);
+  print_auditorio(pAuditorio);
 
-    Atividade atividades[ SIZE ];
-    atividades[ 0 ] = criar_atividade( 1, 3, 5 );
-    atividades[ 1 ] = criar_atividade( 2, 8, 11 );
-    atividades[ 2 ] = criar_atividade( 3, 5, 7 );
-    atividades[ 3 ] = criar_atividade( 4, 1, 4 );
-    atividades[ 4 ] = criar_atividade( 5, 6, 10 );
-    atividades[ 5 ] = criar_atividade( 6, 12, 14 );
-    atividades[ 6 ] = criar_atividade( 7, 0, 6 );
-    atividades[ 7 ] = criar_atividade( 8, 8, 12 );
-    atividades[ 8 ] = criar_atividade( 9, 5, 9 );
-    atividades[ 9 ] = criar_atividade( 10, 2, 13 );
-    atividades[ 10 ] = criar_atividade( 11, 3, 8 );
+  destruir_auditorio(pAuditorio);
 
-    Solucao s = resolver( atividades, SIZE );
-
-    for( int i = 0; i < s.tamanho; i++ ){
-        print_atividade( s.atividades[ i ] );
-    }
-    
-    return 0;
-    
+  return 0;
 }
