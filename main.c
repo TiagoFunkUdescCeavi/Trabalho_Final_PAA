@@ -52,7 +52,13 @@ void run_resolver(int print, int size) {
 
   if (print > 0)
     print_auditorio(pAuditorio);
+
+  clock_t begin = clock();
   resolver(pAuditorio);
+  clock_t end = clock();
+  double time_spent = ((double)(end - begin) / (double) CLOCKS_PER_SEC);
+  printf("%d;%lf", size, time_spent);
+
   if (print > 0)
     print_auditorio(pAuditorio);
 
@@ -60,14 +66,7 @@ void run_resolver(int print, int size) {
 }
 
 void run_auditorio(int size) {
-  clock_t begin = clock();
-
   run_resolver(0, size);
-
-  clock_t end = clock();
-  double time_spent = ((double)(end - begin) / (double) CLOCKS_PER_SEC);
-
-  printf("%d;%lf", size, time_spent);
 }
 
 int main(int argc, char** agrv) {

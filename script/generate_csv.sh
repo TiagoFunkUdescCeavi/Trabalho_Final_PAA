@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CSV_FILE=./assets/data_size.csv
+CSV_FILE=./assets/data_size_1.csv
 BINARY=TRABALHO_FINAL_PAA
 EXECUTIONS=30
 
