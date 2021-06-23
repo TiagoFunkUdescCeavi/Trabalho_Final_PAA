@@ -28,7 +28,8 @@
 
 - Execute o comando `make`
 __Resultado Esperado__
-- ![](https://i.imgur.com/49EbX1S.png)
+
+![](./assets/make.png)
 
 - Deve gerar o arquivo executável `TRABALHO_FINAL_PAA`
 
@@ -44,3 +45,7 @@ __Resultado Esperado__
 ### Como Limpar
 - Limpa todos os `.out` e o `TRABALHO_FINAL_PAA`
 - Execute o comando `make clean`
+
+### Script de dados
+- Rode `make script.sh`
+- Deve excutar 1000 vezes para cada um dos seguintes valores: `[10 100 1000 10000 100000 1000000 10000000]`

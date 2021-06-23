@@ -3,15 +3,22 @@
 
 #include "Escalonador_Tarefas_Publico.h"
 
-struct __atividade{
-    int id;
-    int inicio;
-    int termino;
-};
+typedef struct Atividade {
+  int id;
+  int inicio;
+  int termino;
+  int reservado;
+} Atividade;
 
-void ordenar( Atividade * atividades, int tamanho );
+typedef struct Auditorio {
+  int maxTamanho; // quantidade maxima de atividades
+  Atividade* atividades;
+} Auditorio;
 
-void merge( Atividade * v, int l, int m, int r );
-void merge_sort( Atividade * v, int i, int f );
+void ordenar(Atividade* atividades, int tamanho);
+void merge(Atividade* atividades, int l, int m, int r);
+void merge_sort(Atividade* atividades, int i, int f);
+void print_atividade(Atividade a);
+Atividade* criar_atividades(int maxTamanho);
 
 #endif
