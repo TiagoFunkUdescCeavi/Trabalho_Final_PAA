@@ -3,7 +3,7 @@ import numpy as np
 import math
 import pandas as pd
 
-df = pd.read_csv (r'../assets/data_size.csv',sep=";")
+df = pd.read_csv (r'../assets/data_size_2.csv',sep=";")
 print (df)
 
 df["TIME"] = df["TIME"].astype(float)
@@ -21,7 +21,7 @@ for i in dx["SIZE"] :
 plt.plot( dx["SIZE"], dx["SIZE"], label='n', linewidth=1)
 plt.plot( dx["SIZE"], z, label='log n', linewidth=1)
 plt.plot( dx["SIZE"], y, label='n log n', linewidth=1)
-plt.plot( dx["SIZE"], dx["TIME"]*1000000, label="nossos dados", linewidth=1 )
+plt.plot( dx["SIZE"], dx["TIME"], label="nossos dados", linewidth=1 )
 
 plt.xlabel('Tamanho')
 plt.ylabel('Tempo')
