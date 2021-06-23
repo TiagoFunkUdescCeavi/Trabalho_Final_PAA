@@ -18,18 +18,18 @@ Atividade* criar_atividades(int maxTamanho) {
   return malloc(sizeof(Atividade) * maxTamanho);
 }
 
-int upsert_atividade(pAuditorio pAuditorio, int id, int inicio, int termino) {
-  if (id >= pAuditorio->maxTamanho) {
+int upsert_atividade(pAuditorio pAuditorio, int pos, int inicio, int termino) {
+  if (pos >= pAuditorio->maxTamanho) {
     return FALSE;
   }
 
-  Atividade atividade = pAuditorio->atividades[id];
-  atividade.id = id;
+  Atividade atividade = pAuditorio->atividades[pos];
+  atividade.id = pos;
   atividade.inicio = inicio;
   atividade.termino = termino;
   atividade.reservado = FALSE;
 
-  pAuditorio->atividades[id] = atividade;
+  pAuditorio->atividades[pos] = atividade;
 
   return TRUE;
 }
@@ -93,8 +93,10 @@ void merge(Atividade* v, int l, int m, int r) {
   int i, j, k;
   int n1 = m - l + 1;
   int n2 = r - m;
-  Atividade vl[n1];
-  Atividade vr[n2];
+  // Atividade vl[n1];
+  Atividade* vl = malloc(sizeof(Atividade) * n1);
+  Atividade* vr = malloc(sizeof(Atividade) * n2);
+  // Atividade vr[n2];
 
   for (i = 0; i < n1; i++) {
     vl[i] = v[l + i];
@@ -128,6 +130,9 @@ void merge(Atividade* v, int l, int m, int r) {
     j++;
     k++;
   }
+
+  free(vl);
+  free(vr);
 }
 
 void merge_sort(Atividade* v, int i, int f) {

@@ -4,7 +4,7 @@
 typedef struct Auditorio* pAuditorio;
 
 pAuditorio criar_auditorio(int maxSize);
-int upsert_atividade(pAuditorio pAuditorio, int id, int inicio, int termino);
+int upsert_atividade(pAuditorio pAuditorio, int pos, int inicio, int termino);
 int resolver(pAuditorio pAuditorio);
 void print_auditorio(pAuditorio pAuditorio);
 int destruir_auditorio(pAuditorio pAuditorio);

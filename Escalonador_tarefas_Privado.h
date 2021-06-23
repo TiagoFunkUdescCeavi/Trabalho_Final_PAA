@@ -11,7 +11,7 @@ typedef struct Atividade {
 } Atividade;
 
 typedef struct Auditorio {
-  int maxTamanho;
+  int maxTamanho; // quantidade maxima de atividades
   Atividade* atividades;
 } Auditorio;
 
