@@ -3,25 +3,35 @@ import numpy as np
 import math
 import pandas as pd
 
-df = pd.read_csv (r'./assets/data.csv')
+df = pd.read_csv (r'../assets/data_size.csv',sep=";")
 print (df)
 
-x = np.linspace(1, 50, num=100)
+df["TIME"] = df["TIME"].astype(float)
+df["SIZE"] = df["SIZE"].astype(float)
+dx = df.groupby(['SIZE']).mean().reset_index()
+
+print( dx )
+
 y = []
-for i in x :
-    y.append( i*math.log(i,2) )
+z = []
+for i in dx["SIZE"] :
+    y.append( i*math.log(i,10) )
+    z.append( math.log(i,10) )
 
-plt.plot(x, y, label='n log n', linewidth=1)
+plt.plot( dx["SIZE"], dx["SIZE"], label='n', linewidth=1)
+plt.plot( dx["SIZE"], z, label='log n', linewidth=1)
+plt.plot( dx["SIZE"], y, label='n log n', linewidth=1)
+plt.plot( dx["SIZE"], dx["TIME"]*1000000, label="nossos dados", linewidth=1 )
 
-plt.xlabel('x label')
-plt.ylabel('y label')
+plt.xlabel('Tamanho')
+plt.ylabel('Tempo')
 
 plt.title("Gráfico")
 
 # Exibe a legenda e por padrão usa o label de cada plot.
 plt.legend()
 
-# Configurações do texto
-plt.text(1.00, 1.0, "Cruzamento das Linhas", fontsize=8, horizontalalignment='right')
+fig = plt.gcf()
+fig.savefig('teste.png', format='png')
 
 plt.show()
