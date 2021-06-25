@@ -1,6 +1,7 @@
 #include "Escalonador_tarefas_Privado.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include <string.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -85,9 +86,12 @@ int destruir_auditorio(pAuditorio pAuditorio) {
   return TRUE;
 }
 
+int countMerge = 0;
 void ordenar(Atividade* atividades, int tamanho) {
   merge_sort(atividades, 0, tamanho - 1);
+  printf("Count Merge %d\n", countMerge);
 }
+
 
 void merge(Atividade* v, int l, int m, int r) {
   int i, j, k;
@@ -101,6 +105,7 @@ void merge(Atividade* v, int l, int m, int r) {
   for (i = 0; i < n1; i++) {
     vl[i] = v[l + i];
   }
+
   for (j = 0; j < n2; j++) {
     vr[j] = v[m + j + 1];
   }
@@ -111,9 +116,11 @@ void merge(Atividade* v, int l, int m, int r) {
   while (i < n1 && j < n2) {
     if (vl[i].termino <= vr[j].termino) {
       v[k] = vl[i];
+      countMerge++;
       i++;
     } else {
       v[k] = vr[j];
+      countMerge++;
       j++;
     }
     k++;
@@ -121,12 +128,14 @@ void merge(Atividade* v, int l, int m, int r) {
 
   while (i < n1) {
     v[k] = vl[i];
+    countMerge++;
     i++;
     k++;
   }
 
   while (j < n2) {
     v[k] = vr[j];
+    countMerge++;
     j++;
     k++;
   }

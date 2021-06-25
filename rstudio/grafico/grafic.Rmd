@@ -1,0 +1,27 @@
+---
+title: "grafico"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+data.csv <- read.csv(file = '../../assets/data_size_2.csv', sep = ';')
+
+data.agg = aggregate(TIME ~ SIZE, data = data.csv, FUN = mean)
+data.agg
+
+str(data.agg)
+str(data.csv)
+
+nLogN = data.agg$SIZE * log2(data.agg$SIZE)
+
+plot(data.agg$SIZE, data.agg$TIME, type = "b", col="RED")
+plot(nLogN, data.agg$TIME, type = "b", col="blue")
+#lines(x, y2, pch = 18, col = "blue", type = "b", lty = 2)
+
+```
