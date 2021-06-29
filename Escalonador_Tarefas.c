@@ -35,7 +35,7 @@ int upsert_atividade(pAuditorio pAuditorio, int pos, int inicio, int termino) {
 }
 
 void print_auditorio(pAuditorio pAuditorio) {
-  printf("Auditorio maxTamanho %d\n", pAuditorio->maxTamanho);
+  printf("Tamanho maximo auditório: %d\n", pAuditorio->maxTamanho);
   for (int i = 0; i < pAuditorio->maxTamanho; i++) {
     Atividade atividade = pAuditorio->atividades[i];
     if (atividade.id >= 0) {
@@ -45,7 +45,7 @@ void print_auditorio(pAuditorio pAuditorio) {
 }
 
 void print_atividade(Atividade a) {
-  printf("Id: %d, Inicio: %d, Termino: %d, Reservado: %d\n", a.id, a.inicio, a.termino, a.reservado);
+  printf("Id: %d,\tInicio: %d,\tTermino: %d,\tReservado: %s\n", a.id, a.inicio, a.termino, a.reservado?"Sim":"Não");
 }
 
 int resolver(pAuditorio pAuditorio) {

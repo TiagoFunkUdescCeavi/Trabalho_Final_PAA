@@ -35,11 +35,14 @@ __Resultado Esperado__
 
 ### Como Executar
 - Após realizar o build do executável com `make`
-- Rode o arquivo com a seguinte linha de comando
+- Rode o arquivo com a seguinte linha de comando para um exemplo simples
 ```shell
 ./TRABALHO_FINAL_PAA
 ```
-
+- Rode o arquivo com a seguinte linha de comando para gerar valores aleatórios de tamanho qualquer. 
+```shell
+./TRABALHO_FINAL_PAA <n>
+```
 > Para limpar, realizar o build e executar o main use `make run`
 
 ### Como Limpar
@@ -48,4 +51,8 @@ __Resultado Esperado__
 
 ### Script de dados
 - Rode `make script.sh`
-- Deve excutar 1000 vezes para cada um dos seguintes valores: `[10 100 1000 10000 100000 1000000 10000000]`
+- Deve excutar 30 vezes para cada um dos seguintes valores: `(270000 810000 2430000 7290000 21870000 65610000)`
+
+### Análise de complexidade
+- Foi gerado um gráfico em função do tempo e com a linha de tendência.
+![](./assets/make.png)
