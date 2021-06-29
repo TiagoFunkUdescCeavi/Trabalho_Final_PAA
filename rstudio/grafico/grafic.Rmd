@@ -1,5 +1,6 @@
 ---
 title: "Trabalho de PAA"
+author: "Taynara Dutra, Tiago Funk e Rafael Tenfen"
 output: 
   pdf_document: default
   html_document: default
@@ -9,6 +10,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 data.csv <- read.csv(file = '../../assets/data_size_2.csv', sep = ';')
 ```
+
+
 
 ### Problema do Auditório
 
@@ -111,15 +114,11 @@ curve(x * log2(x), from=min(data.agg$SIZE), to=max(data.agg$SIZE), n = length(da
 
 ![](./grafico_merge.jpeg)
 
-- Segundo o autor deste mesmo exemplo, a linha de tendência utilizada para analisar este tipo de gráfico é do tipo "exponencial", a qual sugere o comportamento `O (n log n)`. Assim, a linha de tendência e a linha dos dados podem ser visualizados no mesmo gráfico. 
+- Segundo o autor Matiusso Jr. (2013) deste exemplo acima, a linha de tendência utilizada para analisar este tipo de gráfico é do tipo "exponencial", a qual sugere o comportamento `O (n log n)`. Assim, a linha de tendência e a linha dos dados podem ser visualizados no mesmo gráfico. 
 
+#### Referências
 
-
-
-
-
-
-
+- Matiusso Jr, Mario E. 2013. Análise empírica de algoritmos de ordenação. Disponível em: <http://matiusso.dx.am/Arquivos/ArtigoAED.pdf> Acesso em: 23/06/2021.
 
 
 ```{r, include=F}
